@@ -55,7 +55,7 @@
       }
     }],
     "env": [{
-      "name": "MountainCarContinuous-v0",
+      "name": "MountainCar-v0",
       "max_t": null,
       "max_frame": 30000,
     }],
