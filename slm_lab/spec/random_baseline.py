@@ -4,7 +4,7 @@ from slm_lab.lib import logger, util
 import gym
 import numpy as np
 import pydash as ps
-import roboschool
+# import roboschool
 import pybullet_envs
 
 

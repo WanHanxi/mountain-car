@@ -1,4 +1,4 @@
-name: lab
+name: slm-lab
 channels:
   - plotly
   - conda-forge

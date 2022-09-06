@@ -9,6 +9,9 @@ import os
 import sys
 import torch.multiprocessing as mp
 
+import warnings
+warnings.filterwarnings("ignore")
+
 
 debug_modules = [
     # 'algorithm',
