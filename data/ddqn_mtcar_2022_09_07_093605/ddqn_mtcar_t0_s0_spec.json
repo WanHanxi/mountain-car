@@ -81,7 +81,7 @@
     "experiment_ts": "2022_09_07_093605",
     "prepath": "data/ddqn_mtcar_2022_09_07_093605/ddqn_mtcar_t0_s0",
     "git_sha": "88006fcd2910f6fefbcb7c0970daa1d5b6135cd0",
-    "random_seed": 1662576100,
+    "random_seed": 1662578488,
     "graph_prepath": "data/ddqn_mtcar_2022_09_07_093605/graph/ddqn_mtcar_t0_s0",
     "info_prepath": "data/ddqn_mtcar_2022_09_07_093605/info/ddqn_mtcar_t0_s0",
     "log_prepath": "data/ddqn_mtcar_2022_09_07_093605/log/ddqn_mtcar_t0_s0",
