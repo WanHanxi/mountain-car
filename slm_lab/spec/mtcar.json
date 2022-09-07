@@ -53,7 +53,7 @@
     "env": [{
       "name": "MountainCar-v0",
       "max_t": null,
-      "max_frame": 100000
+      "max_frame": 1000000
     }],
     "body": {
       "product": "outer",

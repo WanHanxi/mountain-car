@@ -1,0 +1,450 @@
+[2022-09-07 09:36:09,724 PID:40630 INFO openai.py __init__] OpenAIEnv:
+- env_spec = {'max_frame': 1000000, 'max_t': None, 'name': 'MountainCar-v0'}
+- eval_frequency = 500
+- log_frequency = 500
+- frame_op = None
+- frame_op_len = None
+- image_downsize = (84, 84)
+- normalize_state = False
+- reward_scale = None
+- num_envs = 1
+- name = MountainCar-v0
+- max_t = 200
+- max_frame = 1000000
+- to_render = False
+- is_venv = False
+- clock_speed = 1
+- clock = <slm_lab.env.base.Clock object at 0x7f7788b24c40>
+- done = False
+- total_reward = nan
+- u_env = <TrackReward<TimeLimit<OrderEnforcing<StepAPICompatibility<PassiveEnvChecker<MountainCarEnv<MountainCar-v0>>>>>>>
+- observation_space = Box([-1.2  -0.07], [0.6  0.07], (2,), float32)
+- action_space = Discrete(3)
+- observable_dim = {'state': 2}
+- action_dim = 3
+- is_discrete = True
+[2022-09-07 09:36:14,379 PID:40630 INFO base.py end_init_nets] Initialized algorithm models for lab_mode: train
+[2022-09-07 09:36:14,383 PID:40630 INFO base.py __init__] DoubleDQN:
+- agent = <slm_lab.agent.Agent object at 0x7f7780af0790>
+- action_pdtype = Argmax
+- action_policy = <function epsilon_greedy at 0x7f7788e94820>
+- explore_var_spec = {'end_step': 10000,
+ 'end_val': 0.2,
+ 'name': 'linear_decay',
+ 'start_step': 1000,
+ 'start_val': 1.0}
+- training_start_step = 32
+- gamma = 0.99
+- training_batch_iter = 8
+- training_iter = 4
+- training_frequency = 4
+- to_train = 0
+- explore_var_scheduler = <slm_lab.agent.algorithm.policy_util.VarScheduler object at 0x7f7780af0880>
+- net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=32, bias=True)
+    (1): SELU()
+    (2): Linear(in_features=32, out_features=32, bias=True)
+    (3): SELU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=32, out_features=3, bias=True)
+  )
+  (loss_fn): MSELoss()
+)
+- target_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=32, bias=True)
+    (1): SELU()
+    (2): Linear(in_features=32, out_features=32, bias=True)
+    (3): SELU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=32, out_features=3, bias=True)
+  )
+  (loss_fn): MSELoss()
+)
+- net_names = ['net', 'target_net']
+- optim = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    eps: 1e-08
+    foreach: None
+    initial_lr: 0.02
+    lr: 0.02
+    maximize: False
+    weight_decay: 0
+)
+- lr_scheduler = <torch.optim.lr_scheduler.StepLR object at 0x7f7780af0f10>
+- global_net = None
+- global_target_net = None
+- online_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=32, bias=True)
+    (1): SELU()
+    (2): Linear(in_features=32, out_features=32, bias=True)
+    (3): SELU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=32, out_features=3, bias=True)
+  )
+  (loss_fn): MSELoss()
+)
+- eval_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=32, bias=True)
+    (1): SELU()
+    (2): Linear(in_features=32, out_features=32, bias=True)
+    (3): SELU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=32, out_features=3, bias=True)
+  )
+  (loss_fn): MSELoss()
+)
+[2022-09-07 09:36:14,385 PID:40630 INFO __init__.py __init__] Agent:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 500,
+ 'experiment': 0,
+ 'experiment_ts': '2022_09_07_093605',
+ 'git_sha': '88006fcd2910f6fefbcb7c0970daa1d5b6135cd0',
+ 'graph_prepath': 'data/ddqn_mtcar_2022_09_07_093605/graph/ddqn_mtcar_t0_s4',
+ 'info_prepath': 'data/ddqn_mtcar_2022_09_07_093605/info/ddqn_mtcar_t0_s4',
+ 'log_frequency': 500,
+ 'log_prepath': 'data/ddqn_mtcar_2022_09_07_093605/log/ddqn_mtcar_t0_s4',
+ 'max_session': 8,
+ 'max_trial': 5,
+ 'model_prepath': 'data/ddqn_mtcar_2022_09_07_093605/model/ddqn_mtcar_t0_s4',
+ 'prepath': 'data/ddqn_mtcar_2022_09_07_093605/ddqn_mtcar_t0_s4',
+ 'random_seed': 1662561769,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'session': 4,
+ 'trial': 0}
+- agent_spec = {'algorithm': {'action_pdtype': 'Argmax',
+               'action_policy': 'epsilon_greedy',
+               'explore_var_spec': {'end_step': 10000,
+                                    'end_val': 0.2,
+                                    'name': 'linear_decay',
+                                    'start_step': 1000,
+                                    'start_val': 1.0},
+               'gamma': 0.99,
+               'name': 'DoubleDQN',
+               'training_batch_iter': 8,
+               'training_frequency': 4,
+               'training_iter': 4,
+               'training_start_step': 32},
+ 'memory': {'alpha': 0.6,
+            'batch_size': 32,
+            'epsilon': 0.001,
+            'max_size': 10000,
+            'name': 'PrioritizedReplay',
+            'use_cer': False},
+ 'name': 'DoubleDQN',
+ 'net': {'clip_grad_val': 0.5,
+         'cuda_id': 1,
+         'gpu': True,
+         'hid_layers': [32, 32],
+         'hid_layers_activation': 'selu',
+         'loss_spec': {'name': 'MSELoss'},
+         'lr_scheduler_spec': {'gamma': 0.9,
+                               'name': 'StepLR',
+                               'step_size': 1000},
+         'optim_spec': {'lr': 0.02, 'name': 'Adam'},
+         'polyak_coef': 0.1,
+         'type': 'MLPNet',
+         'update_frequency': 32,
+         'update_type': 'polyak'}}
+- name = DoubleDQN
+- body = body: {
+  "agent": "<slm_lab.agent.Agent object at 0x7f7780af0790>",
+  "env": "<slm_lab.env.openai.OpenAIEnv object at 0x7f7788b12190>",
+  "a": 0,
+  "e": 0,
+  "b": 0,
+  "aeb": "(0, 0, 0)",
+  "explore_var": 1.0,
+  "entropy_coef": NaN,
+  "loss": NaN,
+  "mean_entropy": NaN,
+  "mean_grad_norm": NaN,
+  "best_total_reward_ma": -Infinity,
+  "total_reward_ma": NaN,
+  "train_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "eval_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "observation_space": "Box([-1.2  -0.07], [0.6  0.07], (2,), float32)",
+  "action_space": "Discrete(3)",
+  "observable_dim": {
+    "state": 2
+  },
+  "state_dim": 2,
+  "action_dim": 3,
+  "is_discrete": true,
+  "action_type": "discrete",
+  "action_pdtype": "Argmax",
+  "ActionPD": "<class 'slm_lab.lib.distribution.Argmax'>",
+  "memory": "<slm_lab.agent.memory.prioritized.PrioritizedReplay object at 0x7f7780af0250>"
+}
+- algorithm = <slm_lab.agent.algorithm.dqn.DoubleDQN object at 0x7f7780af0a60>
+[2022-09-07 09:36:14,386 PID:40630 INFO logger.py info] Session:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 500,
+ 'experiment': 0,
+ 'experiment_ts': '2022_09_07_093605',
+ 'git_sha': '88006fcd2910f6fefbcb7c0970daa1d5b6135cd0',
+ 'graph_prepath': 'data/ddqn_mtcar_2022_09_07_093605/graph/ddqn_mtcar_t0_s4',
+ 'info_prepath': 'data/ddqn_mtcar_2022_09_07_093605/info/ddqn_mtcar_t0_s4',
+ 'log_frequency': 500,
+ 'log_prepath': 'data/ddqn_mtcar_2022_09_07_093605/log/ddqn_mtcar_t0_s4',
+ 'max_session': 8,
+ 'max_trial': 5,
+ 'model_prepath': 'data/ddqn_mtcar_2022_09_07_093605/model/ddqn_mtcar_t0_s4',
+ 'prepath': 'data/ddqn_mtcar_2022_09_07_093605/ddqn_mtcar_t0_s4',
+ 'random_seed': 1662561769,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'session': 4,
+ 'trial': 0}
+- index = 4
+- agent = <slm_lab.agent.Agent object at 0x7f7780af0790>
+- env = <slm_lab.env.openai.OpenAIEnv object at 0x7f7788b12190>
+- eval_env = <slm_lab.env.openai.OpenAIEnv object at 0x7f7788b12190>
+[2022-09-07 09:36:14,386 PID:40630 INFO logger.py info] Running RL loop for trial 0 session 4
+[2022-09-07 09:36:14,393 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 0  t: 0  wall_t: 0  opt_step: 0  frame: 0  fps: 0  total_reward: nan  total_reward_ma: nan  loss: nan  lr: 0.02  explore_var: 1  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:36:44,736 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 2  t: 100  wall_t: 35  opt_step: 22464  frame: 500  fps: 14.2857  total_reward: -200  total_reward_ma: -200  loss: 0.0442991  lr: 0.02  explore_var: 1  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:37:16,768 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 4  t: 200  wall_t: 67  opt_step: 46464  frame: 1000  fps: 14.9254  total_reward: -200  total_reward_ma: -200  loss: 0.187304  lr: 0.02  explore_var: 1  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:37:16,790 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:37:16,795 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 4  t: 200  wall_t: 67  opt_step: 46464  frame: 1000  fps: 14.9254  total_reward: -200  total_reward_ma: -200  loss: 0.187304  lr: 0.02  explore_var: 1  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:37:16,812 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:37:49,754 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 7  t: 100  wall_t: 100  opt_step: 70464  frame: 1500  fps: 15  total_reward: -200  total_reward_ma: -200  loss: 0.525654  lr: 0.018  explore_var: 0.955556  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:37:49,774 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:38:21,977 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 9  t: 200  wall_t: 132  opt_step: 94464  frame: 2000  fps: 15.1515  total_reward: -200  total_reward_ma: -200  loss: 0.781907  lr: 0.018  explore_var: 0.911111  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:38:21,996 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:38:22,001 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 9  t: 200  wall_t: 132  opt_step: 94464  frame: 2000  fps: 15.1515  total_reward: -200  total_reward_ma: -200  loss: 0.781907  lr: 0.018  explore_var: 0.911111  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:38:22,018 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:38:53,955 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 12  t: 100  wall_t: 164  opt_step: 118464  frame: 2500  fps: 15.2439  total_reward: -200  total_reward_ma: -200  loss: 1.43837  lr: 0.0162  explore_var: 0.866667  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:38:53,975 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:39:25,995 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 14  t: 200  wall_t: 196  opt_step: 142464  frame: 3000  fps: 15.3061  total_reward: -200  total_reward_ma: -200  loss: 0.980409  lr: 0.0162  explore_var: 0.822222  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:39:26,014 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:39:26,019 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 14  t: 200  wall_t: 196  opt_step: 142464  frame: 3000  fps: 15.3061  total_reward: -200  total_reward_ma: -200  loss: 0.980409  lr: 0.0162  explore_var: 0.822222  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:39:26,036 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:39:58,242 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 17  t: 100  wall_t: 228  opt_step: 166464  frame: 3500  fps: 15.3509  total_reward: -200  total_reward_ma: -200  loss: 2.51621  lr: 0.01458  explore_var: 0.777778  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:39:58,268 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:40:32,226 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 19  t: 200  wall_t: 262  opt_step: 190464  frame: 4000  fps: 15.2672  total_reward: -200  total_reward_ma: -200  loss: 2.89781  lr: 0.01458  explore_var: 0.733333  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:40:32,246 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:40:32,251 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 19  t: 200  wall_t: 262  opt_step: 190464  frame: 4000  fps: 15.2672  total_reward: -200  total_reward_ma: -200  loss: 2.89781  lr: 0.01458  explore_var: 0.733333  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:40:32,269 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:41:05,598 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 22  t: 100  wall_t: 295  opt_step: 214464  frame: 4500  fps: 15.2542  total_reward: -200  total_reward_ma: -200  loss: 2.93777  lr: 0.013122  explore_var: 0.688889  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:41:05,617 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:41:37,899 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 24  t: 200  wall_t: 328  opt_step: 238464  frame: 5000  fps: 15.2439  total_reward: -200  total_reward_ma: -200  loss: 0.631827  lr: 0.013122  explore_var: 0.644444  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:41:37,919 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:41:37,923 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 24  t: 200  wall_t: 328  opt_step: 238464  frame: 5000  fps: 15.2439  total_reward: -200  total_reward_ma: -200  loss: 0.631827  lr: 0.013122  explore_var: 0.644444  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:41:37,940 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:42:10,998 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 27  t: 100  wall_t: 361  opt_step: 262464  frame: 5500  fps: 15.2355  total_reward: -200  total_reward_ma: -200  loss: 5.72507  lr: 0.0118098  explore_var: 0.6  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:42:11,018 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:42:44,451 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 29  t: 200  wall_t: 394  opt_step: 286464  frame: 6000  fps: 15.2284  total_reward: -200  total_reward_ma: -200  loss: 7.25697  lr: 0.0118098  explore_var: 0.555556  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:42:44,470 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:42:44,475 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 29  t: 200  wall_t: 394  opt_step: 286464  frame: 6000  fps: 15.2284  total_reward: -200  total_reward_ma: -200  loss: 7.25697  lr: 0.0118098  explore_var: 0.555556  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:42:44,492 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:43:16,871 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 32  t: 100  wall_t: 427  opt_step: 310464  frame: 6500  fps: 15.2225  total_reward: -200  total_reward_ma: -200  loss: 3.48334  lr: 0.0106288  explore_var: 0.511111  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:43:16,891 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:43:49,539 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 34  t: 200  wall_t: 459  opt_step: 334464  frame: 7000  fps: 15.2505  total_reward: -200  total_reward_ma: -200  loss: 2.49351  lr: 0.0106288  explore_var: 0.466667  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:43:49,558 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:43:49,562 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 34  t: 200  wall_t: 459  opt_step: 334464  frame: 7000  fps: 15.2505  total_reward: -200  total_reward_ma: -200  loss: 2.49351  lr: 0.0106288  explore_var: 0.466667  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:43:49,579 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:44:22,180 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 37  t: 100  wall_t: 492  opt_step: 358464  frame: 7500  fps: 15.2439  total_reward: -200  total_reward_ma: -200  loss: 5.58896  lr: 0.00956594  explore_var: 0.422222  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:44:22,200 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:44:58,898 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 39  t: 200  wall_t: 529  opt_step: 382464  frame: 8000  fps: 15.1229  total_reward: -200  total_reward_ma: -200  loss: 10.1641  lr: 0.00956594  explore_var: 0.377778  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:44:58,919 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:44:58,924 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 39  t: 200  wall_t: 529  opt_step: 382464  frame: 8000  fps: 15.1229  total_reward: -200  total_reward_ma: -200  loss: 10.1641  lr: 0.00956594  explore_var: 0.377778  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:44:58,943 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:45:32,659 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 42  t: 100  wall_t: 562  opt_step: 406464  frame: 8500  fps: 15.1246  total_reward: -200  total_reward_ma: -200  loss: 5.21723  lr: 0.00860934  explore_var: 0.333333  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:45:32,678 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:46:05,392 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 44  t: 200  wall_t: 595  opt_step: 430464  frame: 9000  fps: 15.126  total_reward: -200  total_reward_ma: -200  loss: 12.9115  lr: 0.00860934  explore_var: 0.288889  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:46:05,410 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:46:05,415 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 44  t: 200  wall_t: 595  opt_step: 430464  frame: 9000  fps: 15.126  total_reward: -200  total_reward_ma: -200  loss: 12.9115  lr: 0.00860934  explore_var: 0.288889  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:46:05,432 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:46:41,079 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 47  t: 100  wall_t: 631  opt_step: 454464  frame: 9500  fps: 15.0555  total_reward: -200  total_reward_ma: -200  loss: 7.85091  lr: 0.00774841  explore_var: 0.244444  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:46:41,099 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:47:14,036 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 49  t: 200  wall_t: 664  opt_step: 478464  frame: 10000  fps: 15.0602  total_reward: -200  total_reward_ma: -200  loss: 8.6368  lr: 0.00774841  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:47:14,056 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:47:14,060 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 49  t: 200  wall_t: 664  opt_step: 478464  frame: 10000  fps: 15.0602  total_reward: -200  total_reward_ma: -200  loss: 8.6368  lr: 0.00774841  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:47:14,077 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:47:47,103 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 52  t: 100  wall_t: 697  opt_step: 502464  frame: 10500  fps: 15.0646  total_reward: -200  total_reward_ma: -200  loss: 13.6265  lr: 0.00697357  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:47:47,121 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:48:22,682 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 54  t: 200  wall_t: 732  opt_step: 526464  frame: 11000  fps: 15.0273  total_reward: -200  total_reward_ma: -200  loss: 14.7903  lr: 0.00697357  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:48:22,703 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:48:22,708 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 54  t: 200  wall_t: 732  opt_step: 526464  frame: 11000  fps: 15.0273  total_reward: -200  total_reward_ma: -200  loss: 14.7903  lr: 0.00697357  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:48:22,727 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:48:58,152 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 57  t: 100  wall_t: 768  opt_step: 550464  frame: 11500  fps: 14.974  total_reward: -200  total_reward_ma: -200  loss: 12.815  lr: 0.00627621  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:48:58,173 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:49:32,686 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 59  t: 200  wall_t: 802  opt_step: 574464  frame: 12000  fps: 14.9626  total_reward: -200  total_reward_ma: -200  loss: 14.1182  lr: 0.00627621  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:49:32,703 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:49:32,708 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 59  t: 200  wall_t: 802  opt_step: 574464  frame: 12000  fps: 14.9626  total_reward: -200  total_reward_ma: -200  loss: 14.1182  lr: 0.00627621  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:49:32,725 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:50:06,113 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 62  t: 100  wall_t: 836  opt_step: 598464  frame: 12500  fps: 14.9522  total_reward: -200  total_reward_ma: -200  loss: 10.2514  lr: 0.00564859  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:50:06,134 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:50:42,924 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 64  t: 200  wall_t: 873  opt_step: 622464  frame: 13000  fps: 14.8912  total_reward: -200  total_reward_ma: -200  loss: 15.4395  lr: 0.00564859  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:50:42,943 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:50:42,948 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 64  t: 200  wall_t: 873  opt_step: 622464  frame: 13000  fps: 14.8912  total_reward: -200  total_reward_ma: -200  loss: 15.4395  lr: 0.00564859  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:50:42,965 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:51:16,675 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 67  t: 100  wall_t: 906  opt_step: 646464  frame: 13500  fps: 14.9007  total_reward: -200  total_reward_ma: -200  loss: 5.18311  lr: 0.00508373  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:51:16,695 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:51:50,662 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 69  t: 200  wall_t: 940  opt_step: 670464  frame: 14000  fps: 14.8936  total_reward: -200  total_reward_ma: -200  loss: 17.7015  lr: 0.00508373  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:51:50,681 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:51:50,685 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 69  t: 200  wall_t: 940  opt_step: 670464  frame: 14000  fps: 14.8936  total_reward: -200  total_reward_ma: -200  loss: 17.7015  lr: 0.00508373  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:51:50,703 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:52:23,602 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 72  t: 100  wall_t: 973  opt_step: 694464  frame: 14500  fps: 14.9024  total_reward: -200  total_reward_ma: -200  loss: 14.0427  lr: 0.00457536  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:52:23,621 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:52:57,404 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 74  t: 200  wall_t: 1007  opt_step: 718464  frame: 15000  fps: 14.8957  total_reward: -200  total_reward_ma: -200  loss: 13.2772  lr: 0.00457536  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:52:57,424 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:52:57,429 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 74  t: 200  wall_t: 1007  opt_step: 718464  frame: 15000  fps: 14.8957  total_reward: -200  total_reward_ma: -200  loss: 13.2772  lr: 0.00457536  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:52:57,448 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:53:30,958 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 77  t: 100  wall_t: 1041  opt_step: 742464  frame: 15500  fps: 14.8895  total_reward: -200  total_reward_ma: -200  loss: 4.14336  lr: 0.00411782  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:53:30,976 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:54:04,822 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 79  t: 200  wall_t: 1075  opt_step: 766464  frame: 16000  fps: 14.8837  total_reward: -200  total_reward_ma: -200  loss: 11.7718  lr: 0.00411782  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:54:04,842 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:54:04,846 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 79  t: 200  wall_t: 1075  opt_step: 766464  frame: 16000  fps: 14.8837  total_reward: -200  total_reward_ma: -200  loss: 11.7718  lr: 0.00411782  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:54:04,864 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:54:39,694 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 82  t: 100  wall_t: 1109  opt_step: 790464  frame: 16500  fps: 14.8783  total_reward: -200  total_reward_ma: -200  loss: 7.19941  lr: 0.00370604  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:54:39,715 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:55:14,775 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 84  t: 200  wall_t: 1145  opt_step: 814464  frame: 17000  fps: 14.8472  total_reward: -200  total_reward_ma: -200  loss: 9.50686  lr: 0.00370604  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:55:14,793 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:55:14,798 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 84  t: 200  wall_t: 1145  opt_step: 814464  frame: 17000  fps: 14.8472  total_reward: -200  total_reward_ma: -200  loss: 9.50686  lr: 0.00370604  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:55:14,815 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:55:47,980 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 87  t: 100  wall_t: 1178  opt_step: 838464  frame: 17500  fps: 14.8557  total_reward: -200  total_reward_ma: -200  loss: 15.998  lr: 0.00333544  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:55:47,999 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:56:22,977 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 89  t: 200  wall_t: 1213  opt_step: 862464  frame: 18000  fps: 14.8392  total_reward: -200  total_reward_ma: -200  loss: 7.53964  lr: 0.00333544  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:56:22,997 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:56:23,002 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 89  t: 200  wall_t: 1213  opt_step: 862464  frame: 18000  fps: 14.8392  total_reward: -200  total_reward_ma: -200  loss: 7.53964  lr: 0.00333544  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:56:23,019 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:56:57,986 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 92  t: 100  wall_t: 1248  opt_step: 886464  frame: 18500  fps: 14.8237  total_reward: -200  total_reward_ma: -200  loss: 17.1387  lr: 0.00300189  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:56:58,005 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:57:30,993 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 94  t: 200  wall_t: 1281  opt_step: 910464  frame: 19000  fps: 14.8322  total_reward: -200  total_reward_ma: -200  loss: 18.0509  lr: 0.00300189  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:57:31,011 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:57:31,016 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 94  t: 200  wall_t: 1281  opt_step: 910464  frame: 19000  fps: 14.8322  total_reward: -200  total_reward_ma: -200  loss: 18.0509  lr: 0.00300189  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:57:31,033 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:58:04,057 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 97  t: 100  wall_t: 1314  opt_step: 934464  frame: 19500  fps: 14.8402  total_reward: -200  total_reward_ma: -200  loss: 8.31571  lr: 0.0027017  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:58:04,077 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:58:38,288 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 99  t: 200  wall_t: 1348  opt_step: 958464  frame: 20000  fps: 14.8368  total_reward: -200  total_reward_ma: -200  loss: 21.9952  lr: 0.0027017  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:58:38,309 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:58:38,314 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 99  t: 200  wall_t: 1348  opt_step: 958464  frame: 20000  fps: 14.8368  total_reward: -200  total_reward_ma: -200  loss: 21.9952  lr: 0.0027017  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:58:38,333 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:59:15,061 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 102  t: 100  wall_t: 1385  opt_step: 982464  frame: 20500  fps: 14.8014  total_reward: -200  total_reward_ma: -200  loss: 21.6605  lr: 0.00243153  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:59:15,080 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 09:59:49,038 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 105  t: 34  wall_t: 1419  opt_step: 1.00646e+06  frame: 21000  fps: 14.7992  total_reward: -200  total_reward_ma: -200  loss: 20.6997  lr: 0.00243153  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 09:59:49,059 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 10:00:23,024 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 107  t: 134  wall_t: 1453  opt_step: 1.03046e+06  frame: 21500  fps: 14.797  total_reward: -200  total_reward_ma: -200  loss: 22.1045  lr: 0.00218838  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:00:23,044 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 10:00:56,776 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 110  t: 34  wall_t: 1487  opt_step: 1.05446e+06  frame: 22000  fps: 14.7949  total_reward: -200  total_reward_ma: -200  loss: 23.0212  lr: 0.00218838  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:00:56,794 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 10:01:31,528 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 112  t: 134  wall_t: 1521  opt_step: 1.07846e+06  frame: 22500  fps: 14.7929  total_reward: -200  total_reward_ma: -200  loss: 5.33767  lr: 0.00196954  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:01:31,549 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -200  strength: 0  max_strength: 0  final_strength: 0  sample_efficiency: nan  training_efficiency: nan  stability: nan
+[2022-09-07 10:02:07,238 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 115  t: 47  wall_t: 1557  opt_step: 1.10246e+06  frame: 23000  fps: 14.772  total_reward: -187  total_reward_ma: -199.717  loss: 6.74047  lr: 0.00196954  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:02:07,264 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -199.717  strength: 0.282609  max_strength: 13  final_strength: 13  sample_efficiency: 4.34783e-05  training_efficiency: 9.07059e-07  stability: nan
+[2022-09-07 10:02:40,755 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 117  t: 147  wall_t: 1591  opt_step: 1.12646e+06  frame: 23500  fps: 14.7706  total_reward: -200  total_reward_ma: -199.723  loss: 8.17825  lr: 0.00177259  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:02:40,770 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -199.723  strength: 0.276596  max_strength: 13  final_strength: 0  sample_efficiency: 4.34783e-05  training_efficiency: 9.07059e-07  stability: 0
+[2022-09-07 10:03:18,236 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 120  t: 47  wall_t: 1628  opt_step: 1.15046e+06  frame: 24000  fps: 14.742  total_reward: -200  total_reward_ma: -199.729  loss: 10.5142  lr: 0.00177259  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:03:18,252 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -199.729  strength: 0.270833  max_strength: 13  final_strength: 0  sample_efficiency: 4.34783e-05  training_efficiency: 9.07059e-07  stability: 0
+[2022-09-07 10:03:51,484 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 122  t: 147  wall_t: 1661  opt_step: 1.17446e+06  frame: 24500  fps: 14.7502  total_reward: -200  total_reward_ma: -199.735  loss: 5.50448  lr: 0.00159533  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:03:51,500 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -199.735  strength: 0.265306  max_strength: 13  final_strength: 0  sample_efficiency: 4.34783e-05  training_efficiency: 9.07059e-07  stability: 0
+[2022-09-07 10:04:24,652 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 125  t: 73  wall_t: 1694  opt_step: 1.19846e+06  frame: 25000  fps: 14.758  total_reward: -200  total_reward_ma: -199.74  loss: 8.3242  lr: 0.00159533  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:04:24,668 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -199.74  strength: 0.26  max_strength: 13  final_strength: 0  sample_efficiency: 4.34783e-05  training_efficiency: 9.07059e-07  stability: 0
+[2022-09-07 10:04:57,687 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 128  t: 76  wall_t: 1727  opt_step: 1.22246e+06  frame: 25500  fps: 14.7655  total_reward: -172  total_reward_ma: -199.196  loss: 11.171  lr: 0.0014358  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:04:57,706 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -199.196  strength: 0.803922  max_strength: 28  final_strength: 28  sample_efficiency: 4.05672e-05  training_efficiency: 8.46252e-07  stability: 0
+[2022-09-07 10:05:30,696 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 131  t: 53  wall_t: 1760  opt_step: 1.24646e+06  frame: 26000  fps: 14.7727  total_reward: -200  total_reward_ma: -199.212  loss: 16.6104  lr: 0.0014358  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:05:30,712 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -199.212  strength: 0.788462  max_strength: 28  final_strength: 0  sample_efficiency: 4.05672e-05  training_efficiency: 8.46252e-07  stability: 0
+[2022-09-07 10:06:03,901 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 134  t: 31  wall_t: 1794  opt_step: 1.27046e+06  frame: 26500  fps: 14.7715  total_reward: -200  total_reward_ma: -199.226  loss: 9.62959  lr: 0.00129222  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:06:03,917 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -199.226  strength: 0.773585  max_strength: 28  final_strength: 0  sample_efficiency: 4.05672e-05  training_efficiency: 8.46252e-07  stability: 0
+[2022-09-07 10:06:37,112 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 136  t: 131  wall_t: 1827  opt_step: 1.29446e+06  frame: 27000  fps: 14.7783  total_reward: -200  total_reward_ma: -199.241  loss: 8.6882  lr: 0.00129222  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:06:37,127 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -199.241  strength: 0.759259  max_strength: 28  final_strength: 0  sample_efficiency: 4.05672e-05  training_efficiency: 8.46252e-07  stability: 0
+[2022-09-07 10:07:10,370 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 139  t: 160  wall_t: 1860  opt_step: 1.31846e+06  frame: 27500  fps: 14.7849  total_reward: -157  total_reward_ma: -198.473  loss: 8.53812  lr: 0.00116299  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:07:10,390 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -198.473  strength: 1.52727  max_strength: 43  final_strength: 43  sample_efficiency: 3.84154e-05  training_efficiency: 8.0131e-07  stability: 0
+[2022-09-07 10:07:43,532 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 142  t: 103  wall_t: 1893  opt_step: 1.34246e+06  frame: 28000  fps: 14.7913  total_reward: -197  total_reward_ma: -198.446  loss: 7.02955  lr: 0.00116299  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:07:43,553 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -198.446  strength: 1.55357  max_strength: 43  final_strength: 3  sample_efficiency: 3.83222e-05  training_efficiency: 7.99365e-07  stability: 0.0357143
+[2022-09-07 10:08:16,728 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 145  t: 189  wall_t: 1927  opt_step: 1.36646e+06  frame: 28500  fps: 14.7898  total_reward: -148  total_reward_ma: -197.561  loss: 4.03593  lr: 0.0010467  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:08:16,747 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -197.561  strength: 2.4386  max_strength: 52  final_strength: 52  sample_efficiency: 3.71122e-05  training_efficiency: 7.74095e-07  stability: 0.0689655
+[2022-09-07 10:08:51,119 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 148  t: 179  wall_t: 1961  opt_step: 1.39046e+06  frame: 29000  fps: 14.7884  total_reward: -157  total_reward_ma: -196.862  loss: 18.2207  lr: 0.0010467  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:08:51,139 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -196.862  strength: 3.13793  max_strength: 52  final_strength: 43  sample_efficiency: 3.6491e-05  training_efficiency: 7.61121e-07  stability: 0.352518
+[2022-09-07 10:09:24,340 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 151  t: 137  wall_t: 1994  opt_step: 1.41446e+06  frame: 29500  fps: 14.7944  total_reward: -147  total_reward_ma: -196.017  loss: 13.8525  lr: 0.000942026  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:09:24,360 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -196.017  strength: 3.98305  max_strength: 53  final_strength: 53  sample_efficiency: 3.59062e-05  training_efficiency: 7.48911e-07  stability: 0.505495
+[2022-09-07 10:09:59,045 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 154  t: 147  wall_t: 2029  opt_step: 1.43846e+06  frame: 30000  fps: 14.7856  total_reward: -120  total_reward_ma: -194.75  loss: 5.85396  lr: 0.000942026  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:09:59,064 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -194.75  strength: 5.25  max_strength: 80  final_strength: 80  sample_efficiency: 3.52528e-05  training_efficiency: 7.35267e-07  stability: 0.617021
+[2022-09-07 10:10:32,160 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 157  t: 88  wall_t: 2062  opt_step: 1.46246e+06  frame: 30500  fps: 14.7915  total_reward: -200  total_reward_ma: -194.836  loss: 8.95611  lr: 0.000847823  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:10:32,177 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -194.836  strength: 5.16393  max_strength: 80  final_strength: 0  sample_efficiency: 3.52528e-05  training_efficiency: 7.35267e-07  stability: 0.460317
+[2022-09-07 10:11:05,232 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 160  t: 51  wall_t: 2095  opt_step: 1.48646e+06  frame: 31000  fps: 14.7971  total_reward: -200  total_reward_ma: -194.919  loss: 5.33525  lr: 0.000847823  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:11:05,248 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -194.919  strength: 5.08065  max_strength: 80  final_strength: 0  sample_efficiency: 3.52528e-05  training_efficiency: 7.35267e-07  stability: 0.460317
+[2022-09-07 10:11:41,346 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 164  t: 14  wall_t: 2131  opt_step: 1.51046e+06  frame: 31500  fps: 14.7818  total_reward: -129  total_reward_ma: -193.873  loss: 7.77455  lr: 0.000763041  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:11:41,370 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -193.873  strength: 6.12698  max_strength: 80  final_strength: 71  sample_efficiency: 3.46078e-05  training_efficiency: 7.21799e-07  stability: 0.460317
+[2022-09-07 10:12:17,998 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 167  t: 84  wall_t: 2168  opt_step: 1.53446e+06  frame: 32000  fps: 14.7601  total_reward: -119  total_reward_ma: -192.703  loss: 4.69794  lr: 0.000763041  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:12:18,018 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -192.703  strength: 7.29688  max_strength: 81  final_strength: 81  sample_efficiency: 3.40254e-05  training_efficiency: 7.09639e-07  stability: 0.559585
+[2022-09-07 10:12:53,294 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 170  t: 141  wall_t: 2203  opt_step: 1.55846e+06  frame: 32500  fps: 14.7526  total_reward: -153  total_reward_ma: -192.092  loss: 3.56343  lr: 0.000686737  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:12:53,314 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -192.092  strength: 7.90769  max_strength: 81  final_strength: 47  sample_efficiency: 3.37276e-05  training_efficiency: 7.03423e-07  stability: 0.563169
+[2022-09-07 10:13:26,675 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 173  t: 94  wall_t: 2236  opt_step: 1.58246e+06  frame: 33000  fps: 14.7585  total_reward: -197  total_reward_ma: -192.167  loss: 1.18891  lr: 0.000686737  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:13:26,692 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -192.167  strength: 7.83333  max_strength: 81  final_strength: 3  sample_efficiency: 3.37078e-05  training_efficiency: 7.03008e-07  stability: 0.51751
+[2022-09-07 10:13:59,743 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 176  t: 79  wall_t: 2270  opt_step: 1.60646e+06  frame: 33500  fps: 14.7577  total_reward: -161  total_reward_ma: -191.701  loss: 7.13496  lr: 0.000618063  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:13:59,762 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -191.701  strength: 8.29851  max_strength: 81  final_strength: 39  sample_efficiency: 3.34372e-05  training_efficiency: 6.9736e-07  stability: 0.520309
+[2022-09-07 10:14:33,846 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 179  t: 65  wall_t: 2304  opt_step: 1.63046e+06  frame: 34000  fps: 14.7569  total_reward: -144  total_reward_ma: -191  loss: 6.9961  lr: 0.000618063  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:14:33,867 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -191  strength: 9  max_strength: 81  final_strength: 56  sample_efficiency: 3.30689e-05  training_efficiency: 6.8967e-07  stability: 0.553957
+[2022-09-07 10:15:10,487 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 182  t: 126  wall_t: 2340  opt_step: 1.65446e+06  frame: 34500  fps: 14.7436  total_reward: -193  total_reward_ma: -191.029  loss: 2.11217  lr: 0.000556257  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:15:10,504 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -191.029  strength: 8.97101  max_strength: 81  final_strength: 7  sample_efficiency: 3.30227e-05  training_efficiency: 6.88706e-07  stability: 0.514706
+[2022-09-07 10:15:44,029 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 185  t: 26  wall_t: 2374  opt_step: 1.67846e+06  frame: 35000  fps: 14.743  total_reward: -200  total_reward_ma: -191.157  loss: 3.06852  lr: 0.000556257  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:15:44,044 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -191.157  strength: 8.84286  max_strength: 81  final_strength: 0  sample_efficiency: 3.30227e-05  training_efficiency: 6.88706e-07  stability: 0.508885
+[2022-09-07 10:16:21,991 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 188  t: 5  wall_t: 2412  opt_step: 1.70246e+06  frame: 35500  fps: 14.7181  total_reward: -196  total_reward_ma: -191.225  loss: 2.508  lr: 0.000500631  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:16:22,008 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -191.225  strength: 8.77465  max_strength: 81  final_strength: 4  sample_efficiency: 3.29915e-05  training_efficiency: 6.88056e-07  stability: 0.508885
+[2022-09-07 10:16:55,858 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 190  t: 113  wall_t: 2446  opt_step: 1.72646e+06  frame: 36000  fps: 14.7179  total_reward: -200  total_reward_ma: -191.347  loss: 1.60604  lr: 0.000500631  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:16:55,879 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -191.347  strength: 8.65278  max_strength: 81  final_strength: 0  sample_efficiency: 3.29915e-05  training_efficiency: 6.88056e-07  stability: 0.505618
+[2022-09-07 10:17:29,347 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 193  t: 111  wall_t: 2479  opt_step: 1.75046e+06  frame: 36500  fps: 14.7237  total_reward: -127  total_reward_ma: -190.466  loss: 3.2619  lr: 0.000450568  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:17:29,366 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -190.466  strength: 9.53425  max_strength: 81  final_strength: 73  sample_efficiency: 3.24048e-05  training_efficiency: 6.75807e-07  stability: 0.505618
+[2022-09-07 10:18:03,613 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 197  t: 24  wall_t: 2513  opt_step: 1.77446e+06  frame: 37000  fps: 14.7234  total_reward: -158  total_reward_ma: -190.027  loss: 0.379025  lr: 0.000450568  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:18:03,632 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -190.027  strength: 9.97297  max_strength: 81  final_strength: 42  sample_efficiency: 3.20987e-05  training_efficiency: 6.69419e-07  stability: 0.512931
+[2022-09-07 10:18:36,873 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 200  t: 109  wall_t: 2547  opt_step: 1.79846e+06  frame: 37500  fps: 14.7232  total_reward: -122  total_reward_ma: -189.12  loss: 1.8451  lr: 0.000405511  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:18:36,893 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -189.12  strength: 10.88  max_strength: 81  final_strength: 78  sample_efficiency: 3.15795e-05  training_efficiency: 6.5858e-07  stability: 0.54065
+[2022-09-07 10:19:13,836 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 204  t: 84  wall_t: 2584  opt_step: 1.82246e+06  frame: 38000  fps: 14.7059  total_reward: -116  total_reward_ma: -188.158  loss: 5.47493  lr: 0.000405511  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:19:13,858 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -188.158  strength: 11.8421  max_strength: 84  final_strength: 84  sample_efficiency: 3.10882e-05  training_efficiency: 6.48325e-07  stability: 0.584559
+[2022-09-07 10:19:46,915 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 207  t: 70  wall_t: 2617  opt_step: 1.84646e+06  frame: 38500  fps: 14.7115  total_reward: -161  total_reward_ma: -187.805  loss: 5.2278  lr: 0.00036496  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:19:46,934 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -187.805  strength: 12.1948  max_strength: 84  final_strength: 39  sample_efficiency: 3.08758e-05  training_efficiency: 6.43892e-07  stability: 0.573333
+[2022-09-07 10:20:21,340 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 210  t: 113  wall_t: 2651  opt_step: 1.87046e+06  frame: 39000  fps: 14.7114  total_reward: -164  total_reward_ma: -187.5  loss: 4.58083  lr: 0.00036496  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:20:21,360 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -187.5  strength: 12.5  max_strength: 84  final_strength: 36  sample_efficiency: 3.06825e-05  training_efficiency: 6.39857e-07  stability: 0.587859
+[2022-09-07 10:20:54,648 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 213  t: 144  wall_t: 2684  opt_step: 1.89446e+06  frame: 39500  fps: 14.7168  total_reward: -159  total_reward_ma: -187.139  loss: 2.93291  lr: 0.000328464  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:20:54,669 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -187.139  strength: 12.8608  max_strength: 84  final_strength: 41  sample_efficiency: 3.0466e-05  training_efficiency: 6.35337e-07  stability: 0.603077
+[2022-09-07 10:21:28,005 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 216  t: 165  wall_t: 2718  opt_step: 1.91846e+06  frame: 40000  fps: 14.7167  total_reward: -159  total_reward_ma: -186.788  loss: 0.448776  lr: 0.000328464  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:21:28,023 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -186.788  strength: 13.2125  max_strength: 84  final_strength: 41  sample_efficiency: 3.0254e-05  training_efficiency: 6.30912e-07  stability: 0.619094
+[2022-09-07 10:22:01,071 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 219  t: 144  wall_t: 2751  opt_step: 1.94246e+06  frame: 40500  fps: 14.7219  total_reward: -200  total_reward_ma: -186.951  loss: 1.1822  lr: 0.000295618  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:22:01,092 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -186.951  strength: 13.0494  max_strength: 84  final_strength: 0  sample_efficiency: 3.0254e-05  training_efficiency: 6.30912e-07  stability: 0.59508
+[2022-09-07 10:22:34,991 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 222  t: 132  wall_t: 2785  opt_step: 1.96646e+06  frame: 41000  fps: 14.7217  total_reward: -157  total_reward_ma: -186.585  loss: 0.276898  lr: 0.000295618  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:22:35,013 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -186.585  strength: 13.4146  max_strength: 84  final_strength: 43  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.59508
+[2022-09-07 10:23:08,195 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 225  t: 32  wall_t: 2818  opt_step: 1.99046e+06  frame: 41500  fps: 14.7268  total_reward: -200  total_reward_ma: -186.747  loss: 22.5606  lr: 0.000266056  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:23:08,210 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -186.747  strength: 13.253  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818
+[2022-09-07 10:23:41,375 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 228  t: 9  wall_t: 2851  opt_step: 2.01446e+06  frame: 42000  fps: 14.7317  total_reward: -200  total_reward_ma: -186.905  loss: 23.7381  lr: 0.000266056  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:23:41,392 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -186.905  strength: 13.0952  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818
+[2022-09-07 10:24:14,635 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 230  t: 109  wall_t: 2884  opt_step: 2.03846e+06  frame: 42500  fps: 14.7365  total_reward: -200  total_reward_ma: -187.059  loss: 3.37589  lr: 0.00023945  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:24:14,652 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -187.059  strength: 12.9412  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818
+[2022-09-07 10:24:47,796 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 233  t: 9  wall_t: 2918  opt_step: 2.06246e+06  frame: 43000  fps: 14.7361  total_reward: -200  total_reward_ma: -187.209  loss: 41.2614  lr: 0.00023945  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:24:47,812 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -187.209  strength: 12.7907  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818
+[2022-09-07 10:25:21,025 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 235  t: 144  wall_t: 2951  opt_step: 2.08646e+06  frame: 43500  fps: 14.7408  total_reward: -200  total_reward_ma: -187.356  loss: 3.33371  lr: 0.000215505  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:25:21,041 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -187.356  strength: 12.6437  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818
+[2022-09-07 10:25:55,474 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 238  t: 44  wall_t: 2985  opt_step: 2.11046e+06  frame: 44000  fps: 14.7404  total_reward: -200  total_reward_ma: -187.5  loss: 11.1194  lr: 0.000215505  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:25:55,491 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -187.5  strength: 12.5  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818
+[2022-09-07 10:26:28,640 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 240  t: 144  wall_t: 3018  opt_step: 2.13446e+06  frame: 44500  fps: 14.7449  total_reward: -200  total_reward_ma: -187.64  loss: 19.8265  lr: 0.000193955  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:26:28,655 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -187.64  strength: 12.3596  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818
+[2022-09-07 10:27:01,524 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 243  t: 44  wall_t: 3051  opt_step: 2.15846e+06  frame: 45000  fps: 14.7493  total_reward: -200  total_reward_ma: -187.778  loss: 17.9953  lr: 0.000193955  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:27:01,541 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -187.778  strength: 12.2222  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818
+[2022-09-07 10:27:35,041 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 245  t: 144  wall_t: 3085  opt_step: 2.18246e+06  frame: 45500  fps: 14.7488  total_reward: -200  total_reward_ma: -187.912  loss: 53.7232  lr: 0.000174559  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:27:35,059 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -187.912  strength: 12.0879  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818
+[2022-09-07 10:28:11,561 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 248  t: 44  wall_t: 3121  opt_step: 2.20646e+06  frame: 46000  fps: 14.7389  total_reward: -200  total_reward_ma: -188.043  loss: 18.1743  lr: 0.000174559  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:28:11,578 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -188.043  strength: 11.9565  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818
+[2022-09-07 10:28:46,326 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 250  t: 144  wall_t: 3156  opt_step: 2.23046e+06  frame: 46500  fps: 14.7338  total_reward: -200  total_reward_ma: -188.172  loss: 44.3509  lr: 0.000157103  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:28:46,342 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -188.172  strength: 11.828  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818
+[2022-09-07 10:29:19,641 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 253  t: 44  wall_t: 3189  opt_step: 2.25446e+06  frame: 47000  fps: 14.7382  total_reward: -200  total_reward_ma: -188.298  loss: 18.4887  lr: 0.000157103  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:29:19,659 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -188.298  strength: 11.7021  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818
+[2022-09-07 10:29:52,998 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 255  t: 144  wall_t: 3223  opt_step: 2.27846e+06  frame: 47500  fps: 14.7378  total_reward: -200  total_reward_ma: -188.421  loss: 18.7346  lr: 0.000141393  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:29:53,015 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -188.421  strength: 11.5789  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818
+[2022-09-07 10:30:26,207 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 258  t: 44  wall_t: 3256  opt_step: 2.30246e+06  frame: 48000  fps: 14.742  total_reward: -200  total_reward_ma: -188.542  loss: 32.3036  lr: 0.000141393  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:30:26,223 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -188.542  strength: 11.4583  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818
+[2022-09-07 10:31:02,059 PID:40630 INFO __init__.py log_summary] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df] epi: 260  t: 144  wall_t: 3292  opt_step: 2.32646e+06  frame: 48500  fps: 14.7327  total_reward: -200  total_reward_ma: -188.66  loss: 25.4164  lr: 0.000127254  explore_var: 0.2  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-07 10:31:02,082 PID:40630 INFO __init__.py log_metrics] Trial 0 session 4 ddqn_mtcar_t0_s4 [train_df metrics] final_return_ma: -188.66  strength: 11.3402  max_strength: 84  final_strength: 0  sample_efficiency: 3.00247e-05  training_efficiency: 6.26128e-07  stability: 0.571818

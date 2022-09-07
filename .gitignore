@@ -28,10 +28,10 @@ node_modules/
 *.ini
 
 # Data files
-data/
-model/
-nb.py
-*.html
-*.log
-*.meta
+# data/
+# model/
+# nb.py
+# *.html
+# *.log
+# *.meta
 SLM-Env

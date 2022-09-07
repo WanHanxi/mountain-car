@@ -1,0 +1,3 @@
+[2022-09-06 23:38:02,720 PID:19593 INFO logger.py info] Running sessions
+[2022-09-07 02:05:11,222 PID:19593 INFO analysis.py analyze_trial] All trial data zipped to data/ddqn_mtcar_2022_09_06_233802.zip
+[2022-09-07 02:05:11,223 PID:19593 INFO logger.py info] Trial 0 done

@@ -1,0 +1,26 @@
+[2022-09-07 14:41:42,270 PID:8853 INFO openai.py __init__] OpenAIEnv:
+- env_spec = {'max_frame': 1000000, 'max_t': None, 'name': 'MountainCar-v0'}
+- eval_frequency = 500
+- log_frequency = 500
+- frame_op = None
+- frame_op_len = None
+- image_downsize = (84, 84)
+- normalize_state = False
+- reward_scale = None
+- num_envs = 1
+- name = MountainCar-v0
+- max_t = 200
+- max_frame = 1000000
+- to_render = True
+- is_venv = False
+- clock_speed = 1
+- clock = <slm_lab.env.base.Clock object at 0x7f6f0432f3c8>
+- done = False
+- total_reward = nan
+- u_env = <TrackReward<TimeLimit<MountainCarEnv<MountainCar-v0>>>>
+- observation_space = Box(2,)
+- action_space = Discrete(3)
+- observable_dim = {'state': 2}
+- action_dim = 3
+- is_discrete = True
+[2022-09-07 14:41:43,531 PID:8853 INFO net_util.py load_algorithm] Loading algorithm DoubleDQN nets ['net', 'target_net'] from data/ddqn_mtcar_2022_09_07_093605/model/ddqn_mtcar_t0_s0_ckpt-best_*.pt
